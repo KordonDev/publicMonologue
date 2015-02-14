@@ -1,30 +1,32 @@
 # .gitignore for Grails 1.2 and 1.3
 
 # web application files
-/web-app/WEB-INF/classes
+publicMonologue/web-app/WEB-INF/classes
 
 # default HSQL database files for production mode
-/prodDb.*
+publicMonologue/prodDb.*
 
 # general HSQL database files
 *Db.properties
 *Db.script
 
 # logs
-/stacktrace.log
-/test/reports
-/logs
+publicMonologue/stacktrace.log
+publicMonologue/test/reports
+publicMonologue/logs
 
 # project release file
-/*.war
+*.war
 
 # plugin release files
-/*.zip
-/plugin.xml
+*.zip
+publicMonologue/plugin.xml
 
 # older plugin install locations
-/plugins
-/web-app/plugins
+publicMonologue/plugins
+publicMonologue/web-app/plugins
 
 # "temporary" build files
-/target
+publicMonologue/target
+
+
