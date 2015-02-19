@@ -1,19 +1,17 @@
 <%@ page import="publicmonologue.Post" %>
 
 <div class="fieldcontain ${hasErrors(bean: postInstance, field: 'title', 'error')} required">
-    <label for="title">
-        <g:message code="post.title.label" default="Title" />
+    <label>
+        <g:message code="post.title.label" default="Title:" />
         <span class="required-indicator">*</span>
+        <g:textField name="title" required="" value="${postInstance?.title}" placeholder="Title..." autocomplete="off"/>
     </label>
-    <g:textField name="title" required="" value="${postInstance?.title}"/>
-
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: postInstance, field: 'content', 'error')} required">
-	<label for="content">
-		<g:message code="post.content.label" default="Content" />
+	<label>
+		<g:message code="post.content.label" default="Content:" />
 		<span class="required-indicator">*</span>
+        <g:textArea name="content"  required="" value="${postInstance?.content}" placeholder="Content..." rows="40" autocomplete="off"/>
 	</label>
-	<g:textArea name="content" required="" value="${postInstance?.content}"/>
-
 </div>

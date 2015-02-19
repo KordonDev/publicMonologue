@@ -24,15 +24,19 @@
             <nav class="top-bar" data-topbar role="navigation">
                 <section class="top-bar-section">
                     <ul class="left">
-                        <li class="active"><g:link class="button large" action="create"><g:message code="menu.newPost"/></g:link></li>
-                        <li class=""><g:link class="button large" action="index"><g:message code="menu.listPosts" /></g:link></li>
+                        <li class=""><g:link class="button" action="index"><g:message code="menu.listPosts" /></g:link></li>
+                        <li class="active"><g:link class="button" action="create"><g:message code="menu.newPost"/></g:link></li>
                     </ul>
                 </section>
             </nav>
         </div>
 
+        <div class="row">
+            <div class="small-centered large-uncentered columns">
+                <g:layoutBody/>
+            </div>
+        </div>
 
-        <g:layoutBody/>
 
         <script src="js/vendor/jquery.js"/>
         <script src="js/foundation.min.js"/>

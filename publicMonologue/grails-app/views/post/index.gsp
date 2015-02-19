@@ -10,7 +10,7 @@
 	<body>
 		<div id="list-post" class="content scaffold-list" role="main">
 			<g:if test="${flash.message}">
-				<div class="message" role="status">${flash.message}</div>
+				<div class="label success" role="status">${flash.message}</div>
 			</g:if>
 
             <g:render template="post"/>
