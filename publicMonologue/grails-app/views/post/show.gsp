@@ -5,7 +5,6 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'post.label', default: 'Post')}" />
-		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
         <g:if test="${flash.message}">

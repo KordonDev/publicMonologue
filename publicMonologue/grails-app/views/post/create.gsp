@@ -3,11 +3,11 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'post.label', default: 'Post')}" />
-		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>
 	<body>
 
 			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
+
 			<g:if test="${flash.message}">
 			    <div class="success label" role="status">${flash.message}</div>
 			</g:if>
