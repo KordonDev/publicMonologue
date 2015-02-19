@@ -8,7 +8,6 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
-        <a href="#list-post" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div id="list-post" class="content scaffold-list" role="main">
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>

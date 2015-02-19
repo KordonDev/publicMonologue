@@ -7,29 +7,38 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title><g:layoutTitle default="Grails"/></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
 		<link rel="apple-touch-icon" href="${assetPath(src: 'apple-touch-icon.png')}">
 		<link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}">
-        <link rel="stylesheet" href="css/foundation.css">
-        <script src="js/vendor/modernizr.js"></script>
-  		<asset:stylesheet src="application.css"/>
-		<asset:javascript src="application.js"/>
-		<g:layoutHead/>
+
+        <asset:javascript src="vendor/modernizr.js"/>
+        <asset:stylesheet src="foundation.css"/>
+        <asset:stylesheet src="css/normalize.css"/>
+
+    	<g:layoutHead/>
 	</head>
 	<body>
-    	<div id="grailsLogo" role="banner"><a href="http://grails.org"><asset:image src="grails_logo.png" alt="Grails"/></a></div>
-        <div class="nav" role="navigation">
-            <ul>
-                <li><a class="button large" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="button large" action="create"><g:message code="menu.newPost"/></g:link></li>
-                <li><g:link class="button large" action="index"><g:message code="menu.listPosts" /></g:link> </li>
-            </ul>
+
+        <div class="contain-to-grid">
+            <nav class="top-bar" data-topbar role="navigation">
+                <section class="top-bar-section">
+                    <ul class="left">
+                        <li class="active"><g:link class="button large" action="create"><g:message code="menu.newPost"/></g:link></li>
+                        <li class=""><g:link class="button large" action="index"><g:message code="menu.listPosts" /></g:link></li>
+                    </ul>
+                </section>
+            </nav>
         </div>
 
-    <g:layoutBody/>
-		<div class="footer" role="contentinfo"></div>
-		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
-	</body>
+
+        <g:layoutBody/>
+
+        <script src="js/vendor/jquery.js"/>
+        <script src="js/foundation.min.js"/>
+        <script>
+            $(document).foundation();
+        </script>
+        <div class="footer" role="contentinfo"></div>
+    </body>
 </html>
