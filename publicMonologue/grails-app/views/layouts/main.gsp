@@ -20,13 +20,21 @@
 	</head>
 	<body>
 
-        <div class="contain-to-grid">
+        <div class="contain-to-grid fixed">
             <nav class="top-bar" data-topbar role="navigation">
-                <section class="top-bar-section">
-                    <ul class="left">
-                        <li class=""><g:link class="button" action="index"><g:message code="menu.listPosts" /></g:link></li>
-                        <li class="active"><g:link class="button" action="create"><g:message code="menu.newPost"/></g:link></li>
-                    </ul>
+                <ul class="title-area">
+                    <li class="name">
+                        <h1><a href="#">Kordon's public monologues</a></h1>
+                    </li> <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                    <li class="toggle-topbar menu-icon">
+                        <a href="#"><span>Menu</span></a>
+                    </li>
+                </ul>
+                <section class="top-bar-section"> <!-- Right Nav Section -->
+                    <ul class="right">
+                        <li id="listPostMenu" class=""><g:link action="index"><g:message code="menu.listPosts" /></g:link></li>
+                        <li id="newPostMenu" class="active"><g:link action="create"><g:message code="menu.newPost"/></g:link></li>
+                    </ul> <!-- Left Nav Section -->
                 </section>
             </nav>
         </div>
@@ -37,9 +45,8 @@
             </div>
         </div>
 
-
-        <script src="js/vendor/jquery.js"/>
-        <script src="js/foundation.min.js"/>
+        <asset:javascript src="vendor/jquery.js"/>
+        <asset:javascript src="foundation.min.js"/>
         <script>
             $(document).foundation();
         </script>
