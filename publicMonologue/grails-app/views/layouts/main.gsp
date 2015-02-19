@@ -34,6 +34,7 @@
                 <section class="top-bar-section"> <!-- Right Nav Section -->
                     <ul class="right">
                         <li id="listPostMenu" class=""><g:link action="index"><g:message code="menu.listPosts" /></g:link></li>
+                        <li id="searchMenu" class=""><g:link action="search"><g:message code="menu.search"/></g:link></li>
                         <li id="newPostMenu" class="active"><g:link action="create"><g:message code="menu.newPost"/></g:link></li>
                     </ul> <!-- Left Nav Section -->
                 </section>

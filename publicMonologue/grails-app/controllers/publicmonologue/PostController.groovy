@@ -101,4 +101,18 @@ class PostController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
+    def search() {
+    }
+
+    List<Post> searchPost(String partOfTitle) {
+        Post.where {
+            title =~ "%${partOfTitle}%"
+        }.list()
+    }
+
+    def result() {
+        def posts = searchPost(params.partOfTitle)
+        model:[postInstanceList: posts, postInstanceCount: posts.size()]
+    }
 }

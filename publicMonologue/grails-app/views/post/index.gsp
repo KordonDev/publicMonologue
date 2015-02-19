@@ -1,4 +1,3 @@
-
 <%@ page import="publicmonologue.Post" %>
 <!DOCTYPE html>
 <html>
