@@ -14,6 +14,6 @@
 		<g:message code="post.content.label" default="Content" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="content" required="" value="${postInstance?.content}"/>
+	<g:textArea name="content" required="" value="${postInstance?.content}"/>
 
 </div>

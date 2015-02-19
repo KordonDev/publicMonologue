@@ -6,7 +6,7 @@ class Post {
     String content
 
     static constraints = {
-        title blank: false, nullable: false
-        content blank: false, nullable: false
+        title maxSize: 100, blank: false, nullable: false
+        content maxSize: 10000, blank: false, nullable: false
     }
 }
