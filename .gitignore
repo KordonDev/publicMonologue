@@ -29,4 +29,6 @@ publicMonologue/web-app/plugins
 # "temporary" build files
 publicMonologue/target
 
-
+#intelliJ Files
+*.iml
+publicMonologue/.idea/
