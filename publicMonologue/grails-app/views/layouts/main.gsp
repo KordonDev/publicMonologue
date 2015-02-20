@@ -33,9 +33,10 @@
                 </ul>
                 <section class="top-bar-section"> <!-- Right Nav Section -->
                     <ul class="right">
-                        <li id="listPostMenu" class=""><g:link action="index"><g:message code="menu.listPosts" /></g:link></li>
-                        <li id="searchMenu" class=""><g:link action="search"><g:message code="menu.search"/></g:link></li>
-                        <li id="newPostMenu" class="active"><g:link action="create"><g:message code="menu.newPost"/></g:link></li>
+                        <li id="listPostMenu" class=""><g:link controller="post" action="index"><g:message code="menu.listPosts" /></g:link></li>
+                        <li id="searchMenu" class=""><g:link controller="post" action="search"><g:message code="menu.search"/></g:link></li>
+                        <li id="newPostMenu" class="active"><g:link controller="post" action="create"><g:message code="menu.newPost"/></g:link></li>
+                    <g:link controller="tag" action="index">List</g:link> <!-- toDo: delete for production -->
                     </ul> <!-- Left Nav Section -->
                 </section>
             </nav>

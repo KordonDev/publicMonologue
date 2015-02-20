@@ -20,10 +20,14 @@
                 </ul>
 			</g:hasErrors>
 
-			<g:form url="[resource:postInstance, action:'save']" >
+			<g:form url="[contrloler: 'Post', action:'save']" >
 				<g:render template="form"/>
+
 				<g:submitButton name="create" class="button success" value="${message(code: 'default.button.create.label', default: 'Create')}" />
 			</g:form>
+
+
+
 
 	</body>
 </html>

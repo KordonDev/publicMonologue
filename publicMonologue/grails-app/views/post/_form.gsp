@@ -15,3 +15,5 @@
         <g:textArea name="content"  required="" value="${postInstance?.content}" placeholder="Content..." rows="40" autocomplete="off"/>
 	</label>
 </div>
+
+<g:select name="tags" from="${tagList}" multiple="true" optionKey="id" optionValue="name"/>

@@ -17,6 +17,13 @@
             <markdown:renderHtml>${postInstance.content} </markdown:renderHtml>
         </div>
     </div>
+    <div id="tags">
+        <ul>
+            <g:each in="${postInstance.tags}" var="tag">
+                <li>${tag.name}</li>
+            </g:each>
+        </ul>
+    </div>
     <div id="dateCreated">
         ${message(code: 'label.created', default: 'Created:')} <g:formatDate format="dd.MM.yyyy" date="${postInstance.dateCreated}"/>
     </div>

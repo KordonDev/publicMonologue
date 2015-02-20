@@ -1,6 +1,6 @@
 package publicmonologue
 
-
+import java.util.regex.Pattern
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -20,11 +20,18 @@ class PostController {
     }
 
     def create() {
-        respond new Post(params)
+        model:[tagList: Tag.all]
     }
 
     @Transactional
-    def save(Post postInstance) {
+    def save() {
+        def postInstance = new Post(params)
+        if (params.tags) {          //dublication
+            def tagList = Tag.getAll(params.list('tags'))
+            for (int i = 0; i < tagList.size(); i++) {
+                postInstance.addToTags(tagList.get(i))
+            }
+        }
         if (postInstance == null) {
             notFound()
             return
@@ -46,12 +53,19 @@ class PostController {
         }
     }
 
-    def edit(Post postInstance) {
-        respond postInstance
+    def edit() {
+        model:[tagList: Tag.all, postInstance: Post.get(params.id)]
     }
 
     @Transactional
-    def update(Post postInstance) {
+    def update() {
+        Post postInstance = Post.get(params.id)
+        if (params.tags) {          //dublication
+            def tagList = Tag.getAll(params.list('tags'))
+            for (int i = 0; i < tagList.size(); i++) {
+                postInstance.addToTags(tagList.get(i))
+            }
+        }
         if (postInstance == null) {
             notFound()
             return
