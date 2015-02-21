@@ -7,6 +7,6 @@ class Tag {
     static belongsTo = [Post]
 
     static constraints = {
-        name blank: false, maxSize: 20
+        name blank: false, maxSize: 20, unique: true
     }
 }

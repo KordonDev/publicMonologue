@@ -26,12 +26,10 @@ class PostController {
     @Transactional
     def save() {
         def postInstance = new Post(params)
-        if (params.tags) {          //dublication
-            def tagList = Tag.getAll(params.list('tags'))
-            for (int i = 0; i < tagList.size(); i++) {
-                postInstance.addToTags(tagList.get(i))
-            }
+        if (params.tags) {
+            postInstance.tags = Tag.getAll(params.list('tags'))
         }
+        
         if (postInstance == null) {
             notFound()
             return
@@ -60,12 +58,10 @@ class PostController {
     @Transactional
     def update() {
         Post postInstance = Post.get(params.id)
-        if (params.tags) {          //dublication
-            def tagList = Tag.getAll(params.list('tags'))
-            for (int i = 0; i < tagList.size(); i++) {
-                postInstance.addToTags(tagList.get(i))
-            }
+        if (params.tags) {
+            postInstance.tags = Tag.getAll(params.list('tags'))
         }
+
         if (postInstance == null) {
             notFound()
             return
