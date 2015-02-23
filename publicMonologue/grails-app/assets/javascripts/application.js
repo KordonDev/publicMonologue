@@ -18,3 +18,18 @@ if (typeof jQuery !== 'undefined') {
 		});
 	})(jQuery);
 }
+
+function activateNavigationButton(toActivate) {
+    var navigationList = document.getElementById("navigation").childNodes;
+    for(var i = 0; i < navigationList.length; i++) {
+        var navigationItem = navigationList.item(i);
+        if (navigationItem.id != undefined) {
+            if (navigationItem.id === toActivate) {
+                navigationItem.classList.add('active');
+            } else {
+                navigationItem.classList.remove('active');
+            }
+        }
+    }
+}
+

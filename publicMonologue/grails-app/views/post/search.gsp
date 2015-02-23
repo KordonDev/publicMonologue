@@ -16,5 +16,9 @@
             <g:submitButton name="search" class="button success" value="${message(code: 'button.search.label', default: 'Search')}" />
         </g:form>
 
+        <script>
+            window.addEventListener("onload", activateNavigationButton("searchMenu"));
+        </script>
+
     </body>
 </html>

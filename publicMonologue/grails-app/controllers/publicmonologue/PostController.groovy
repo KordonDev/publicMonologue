@@ -29,7 +29,7 @@ class PostController {
         if (params.tags) {
             postInstance.tags = Tag.getAll(params.list('tags'))
         }
-        
+
         if (postInstance == null) {
             notFound()
             return

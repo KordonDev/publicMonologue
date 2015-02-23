@@ -13,6 +13,7 @@
 		<link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}">
         <title>Kordon's public monologues</title>
 
+        <asset:javascript src="application.js"/>
         <asset:javascript src="vendor/modernizr.js"/>
         <asset:stylesheet src="foundation.css"/>
         <asset:stylesheet src="css/normalize.css"/>
@@ -32,10 +33,10 @@
                     </li>
                 </ul>
                 <section class="top-bar-section"> <!-- Right Nav Section -->
-                    <ul class="right">
+                    <ul class="right" id="navigation">
                         <li id="listPostMenu" class=""><g:link controller="post" action="index"><g:message code="menu.listPosts" /></g:link></li>
                         <li id="searchMenu" class=""><g:link controller="post" action="search"><g:message code="menu.search"/></g:link></li>
-                        <li id="newPostMenu" class="active"><g:link controller="post" action="create"><g:message code="menu.newPost"/></g:link></li>
+                        <li id="newPostMenu" class=""><g:link controller="post" action="create"><g:message code="menu.newPost"/></g:link></li>
                     <g:link controller="tag" action="index">List</g:link> <!-- toDo: delete for production -->
                     </ul> <!-- Left Nav Section -->
                 </section>

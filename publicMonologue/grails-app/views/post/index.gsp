@@ -17,5 +17,8 @@
 				<g:paginate total="${postInstanceCount ?: 0}" />
 			</div>
 		</div>
+        <script>
+            window.addEventListener("onload", activateNavigationButton("listPostMenu"));
+        </script>
 	</body>
 </html>
