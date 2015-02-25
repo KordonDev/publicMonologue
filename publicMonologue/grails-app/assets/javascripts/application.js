@@ -32,4 +32,3 @@ function activateNavigationButton(toActivate) {
         }
     }
 }
-
