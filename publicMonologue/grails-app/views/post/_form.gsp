@@ -16,4 +16,8 @@
 	</label>
 </div>
 
-<g:select name="tags" from="${tagList}" multiple="true" optionKey="id" optionValue="name" value="${postInstance?.tags}"/>
+<g:select id="my-select" name="tags" from="${tagList}" multiple="true" optionKey="id" optionValue="name" value="${postInstance?.tags}"/>
+
+<script type="text/javascript">
+    $('#my-select').multiSelect();
+</script>

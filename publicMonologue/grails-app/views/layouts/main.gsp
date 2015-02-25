@@ -13,10 +13,14 @@
 		<link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}">
         <title>Kordon's public monologues</title>
 
+        <asset:javascript src="multiselect/jquery.js"/>
+
         <asset:javascript src="application.js"/>
         <asset:javascript src="vendor/modernizr.js"/>
+        <asset:javascript src="multiselect/jquery.multi-select.js"/>
         <asset:stylesheet src="foundation.css"/>
         <asset:stylesheet src="css/normalize.css"/>
+        <asset:stylesheet src="multi-select.css"/>
 
     	<g:layoutHead/>
 	</head>
