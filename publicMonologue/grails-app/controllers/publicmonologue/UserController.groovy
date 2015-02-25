@@ -7,46 +7,16 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class UserController {
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [update: "PUT"]
 
     def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond User.list(params), model: [userInstanceCount: User.count()]
+        redirect(controller: 'User', action: 'show')
+       // params.max = Math.min(max ?: 10, 100)
+        //respond User.list(params), model: [userInstanceCount: User.count()]
     }
 
-    def show(User userInstance) {
-        respond userInstance
-    }
-
-    def create() {
-        respond new User(params)
-    }
-
-    @Transactional
-    def save(User userInstance) {
-        if (userInstance == null) {
-            notFound()
-            return
-        }
-
-        if (userInstance.hasErrors()) {
-            respond userInstance.errors, view: 'create'
-            return
-        }
-
-        userInstance.save flush: true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
-                redirect userInstance
-            }
-            '*' { respond userInstance, [status: CREATED] }
-        }
-    }
-
-    def edit(User userInstance) {
-        respond userInstance
+    def show() {
+        respond User.findAll().get(0)
     }
 
     @Transactional
@@ -57,7 +27,7 @@ class UserController {
         }
 
         if (userInstance.hasErrors()) {
-            respond userInstance.errors, view: 'edit'
+            respond userInstance.errors, view: 'show'
             return
         }
 
@@ -69,25 +39,6 @@ class UserController {
                 redirect userInstance
             }
             '*' { respond userInstance, [status: OK] }
-        }
-    }
-
-    @Transactional
-    def delete(User userInstance) {
-
-        if (userInstance == null) {
-            notFound()
-            return
-        }
-
-        userInstance.delete flush: true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'User.label', default: 'User'), userInstance.id])
-                redirect action: "index", method: "GET"
-            }
-            '*' { render status: NO_CONTENT }
         }
     }
 
