@@ -18,6 +18,11 @@
 
 <g:select id="my-select" name="tags" from="${tagList}" multiple="true" optionKey="id" optionValue="name" value="${postInstance?.tags}"/>
 
-<script type="text/javascript">
-    $('#my-select').multiSelect();
-</script>
+<div style="margin-bottom: 4%">
+    <script type="text/javascript">
+        $('#my-select').multiSelect({
+            selectableHeader: "<div class='custom-header'>Selectable Tags</div>",
+            selectionHeader: "<div class='custom-header'>Selected Tags</div>"
+        });
+    </script>
+</div>
