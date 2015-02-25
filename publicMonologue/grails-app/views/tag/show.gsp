@@ -12,14 +12,13 @@
 			<div class="message" role="status">${flash.message}</div>
 		</g:if>
 
+        <h3><g:message code="tag.postList"/></h3>
 		<ul class="property-list tag">
 			<g:if test="${tagInstance?.posts}">
-				<li class="fieldcontain">
-					<span id="posts-label" class="property-label"><g:message code="tag.posts.label" default="Posts" /></span>
 					<g:each in="${tagInstance.posts}" var="p">
-					    <span class="property-value" aria-labelledby="posts-label"><g:link controller="post" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
+                        <li>
+					    <g:link controller="post" action="show" id="${p.id}">${p?.title.encodeAsHTML()}</g:link></li>
 					</g:each>
-				</li>
 			</g:if>
 
 		</ul>

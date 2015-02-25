@@ -22,7 +22,7 @@
 		<g:form url="[resource:tagInstance, action:'update']" method="PUT" >
 		    <g:hiddenField name="version" value="${tagInstance?.version}" />
 			<g:render template="form"/>
-			<g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
+			<g:actionSubmit class="button success" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
 		</g:form>
 	</body>
 </html>

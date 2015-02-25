@@ -40,20 +40,15 @@
                     <ul class="right" id="navigation">
                         <li id="listPostMenu" class=""><g:link controller="post" action="index"><g:message code="menu.listPosts" /></g:link></li>
                         <li id="searchMenu" class=""><g:link controller="post" action="search"><g:message code="menu.search"/></g:link></li>
-                        <sec:ifAllGranted roles="ROLE_AUTHOR">
-                            <li id="newPostMenu" class=""><g:link controller="post" action="create"><g:message code="menu.newPost"/></g:link></li>
-                        </sec:ifAllGranted>
                         <sec:ifNotLoggedIn>
                             <li id="logIn" class=""><g:link controller="auth" action="login"><g:message code="menu.login"/></li></g:link> </li>
                         </sec:ifNotLoggedIn>
-                        <sec:ifLoggedIn>
-                            <li>
-                                <g:remoteLink controller="logout" action="index" asynchronous="false" after="window.location = '/publicMonologue/'">${message(code: 'menu.logout', default: 'Logout')}</g:remoteLink>
-                            </li>
-                        </sec:ifLoggedIn>
-                        <li>
-                    <g:link controller="tag" action="index">List</g:link> <!-- toDo: delete for production -->
-                        </li>
+                        <sec:ifAllGranted roles="ROLE_AUTHOR">
+                            <li id="newPostMenu" class=""><g:link controller="post" action="create"><g:message code="menu.newPost"/></g:link></li>
+                            <li><g:link controller="tag" action="index"><g:message code="menu.tag"/></g:link></li>
+                            <li><g:link controller="user" action="index"><g:message code="menu.user"/></g:link></li>
+                            <li><g:remoteLink controller="logout" action="index" asynchronous="false" after="window.location = '/publicMonologue/'">${message(code: 'menu.logout', default: 'Logout')}</g:remoteLink></li>
+                        </sec:ifAllGranted>
                     </ul> <!-- Left Nav Section -->
                 </section>
             </nav>

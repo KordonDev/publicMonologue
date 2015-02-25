@@ -18,10 +18,6 @@ class TagController {
         respond tagInstance
     }
 
-    def create() {
-        respond new Tag(params)
-    }
-
     @Transactional
     def save(Tag tagInstance) {
         if (tagInstance == null) {
@@ -30,7 +26,7 @@ class TagController {
         }
 
         if (tagInstance.hasErrors()) {
-            respond tagInstance.errors, view: 'create'
+            respond tagInstance.errors, view: 'index'
             return
         }
 
@@ -39,9 +35,9 @@ class TagController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'tag.label', default: 'Tag'), tagInstance.id])
-                redirect tagInstance
+                redirect action: "index", method: "GET"
             }
-            '*' { respond tagInstance, [status: CREATED] }
+            '*' { render status: OK }
         }
     }
 
@@ -66,9 +62,9 @@ class TagController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Tag.label', default: 'Tag'), tagInstance.id])
-                redirect tagInstance
+                redirect action: "index", method: "GET"
             }
-            '*' { respond tagInstance, [status: OK] }
+            '*' { render status: OK }
         }
     }
 

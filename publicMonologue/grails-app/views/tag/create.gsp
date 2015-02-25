@@ -19,9 +19,9 @@
 
         </g:hasErrors>
 
-	    <g:form url="[resource:tagInstance, action:'save']" >
-			<g:render template="form"/>
-			<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-        </g:form>
+    <g:form url="[resource:tagInstance, action:'save']" >
+        <g:render template="form"/>
+        <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+    </g:form>
 	</body>
 </html>
