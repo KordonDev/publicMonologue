@@ -36,16 +36,26 @@
                     <ul class="right" id="navigation">
                         <li id="listPostMenu" class=""><g:link controller="post" action="index"><g:message code="menu.listPosts" /></g:link></li>
                         <li id="searchMenu" class=""><g:link controller="post" action="search"><g:message code="menu.search"/></g:link></li>
+                    <li id="newPostMenu" class=""><g:link controller="post" action="create"><g:message code="menu.newPost"/></g:link></li>
                         <sec:ifAllGranted roles="ROLE_AUTHOR">
-                            <li id="newPostMenu" class=""><g:link controller="post" action="create"><g:message code="menu.newPost"/></g:link></li>
+
                         </sec:ifAllGranted>
                         <sec:ifNotLoggedIn>
                             <li id="logIn" class=""><g:link controller="login" action="auth"><g:message code="menu.login"/></li></g:link> </li>
                         </sec:ifNotLoggedIn>
                         <sec:ifLoggedIn>
-                            <li id="logOut" class=""><g:link controller="logout" action="index"><g:message code="menu.logout"/></li></g:link> </li>
+                            <li id="logOut" class="">
+                                <g:form name="logout" method="POST" controller="logout" action="index">
+                                    <input type="submit" value="${message(code: 'menu.logout', default: 'Logout')}"/>
+                                </g:form>
+                            </li>
+                            <li>
+                                <g:remoteLink controller="logout" action="index">ile</g:remoteLink>
+                            </li>
                         </sec:ifLoggedIn>
+                        <li>
                     <g:link controller="tag" action="index">List</g:link> <!-- toDo: delete for production -->
+                        </li>
                     </ul> <!-- Left Nav Section -->
                 </section>
             </nav>
