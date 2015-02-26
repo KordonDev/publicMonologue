@@ -18,11 +18,9 @@
         </div>
     </div>
     <div id="tags">
-        <ul>
-            <g:each in="${postInstance.tags}" var="tag">
-                <li>${tag.name}</li>
-            </g:each>
-        </ul>
+        <g:each in="${postInstance.tags}" var="tag">
+            <g:link class="button secondary" controller="tag" action="show" id="${tag.id}">${tag.name}</g:link>
+        </g:each>
     </div>
     <div id="dateCreated">
         ${message(code: 'label.created', default: 'Created:')} <g:formatDate format="dd.MM.yyyy" date="${postInstance.dateCreated}"/>
