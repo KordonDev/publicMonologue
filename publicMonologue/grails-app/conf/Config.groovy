@@ -132,8 +132,10 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/images/**':                  ['permitAll'],
 	'/**/favicon.ico':                ['permitAll'],
 	'/post/index':                    ['permitAll'],
-    '/auth/login':                    ['permitAll'],
+	'/post/result':                   ['permitAll'],
+	'/post/show':                     ['permitAll'],
     '/post/search':                   ['permitAll'],
+    '/auth/login':                    ['permitAll'],
     '/**':                            ['isFullyAuthenticated()']
 ]
 
