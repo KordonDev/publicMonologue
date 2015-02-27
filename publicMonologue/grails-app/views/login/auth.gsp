@@ -8,7 +8,7 @@
         <h1>${message(code: "springSecurity.login.button")}</h1>
         <div class=''>
             <g:if test='${flash.message}'>
-                <div class='login_message'>${flash.message}</div>
+                <div class='label alert'>${flash.message}</div>
             </g:if>
 
             <g:form uri="/j_spring_security_check" method='POST' id='loginForm' class='cssform' autocomplete='off'>

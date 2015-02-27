@@ -39,7 +39,7 @@
                         <li id="listPostMenu" class=""><g:link controller="post" action="index"><g:message code="menu.listPosts" /></g:link></li>
                         <li id="searchMenu" class=""><g:link controller="post" action="search"><g:message code="menu.search"/></g:link></li>
                         <sec:ifNotLoggedIn>
-                            <li id="logIn" class=""><g:link controller="auth" action="login"><g:message code="menu.login"/></li></g:link> </li>
+                            <li id="logIn" class=""><g:link controller="login" action="index"><g:message code="menu.login"/></li></g:link> </li>
                         </sec:ifNotLoggedIn>
                         <sec:ifAllGranted roles="ROLE_AUTHOR">
                             <li id="newPostMenu" class=""><g:link controller="post" action="create"><g:message code="menu.newPost"/></g:link></li>
