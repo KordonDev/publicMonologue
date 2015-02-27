@@ -9,20 +9,24 @@
 	<body>
 		<h1><g:message code="default.show.label" args="[entityName]" /></h1>
 		<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
+			<div class="success label" role="status">${flash.message}</div>
 		</g:if>
 
-        <ul class="property-list user">
+        <g:if test="${flash.error}">
+            <div class="alert label" role="status">${flash.error}</div>
+        </g:if>
+
+        <ul class="circle">
 			<g:if test="${userInstance?.username}">
                 <li>
-                    <g:message code="user.username.label" default="Username" />
+                    <g:message code="user.username" default="Username" />
                     <g:fieldValue bean="${userInstance}" field="username"/>
                 </li>
 			</g:if>
 			
 			<g:if test="${userInstance?.password}">
                 <li>
-                   <g:message code="user.password.label" default="Password" />
+                   <g:message code="user.password.hash" default="Password" />
                    <g:fieldValue bean="${userInstance}" field="password"/>
                 </li>
 			</g:if>

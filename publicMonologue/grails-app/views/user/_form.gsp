@@ -10,9 +10,16 @@
 
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'password', 'error')} required">
 	<label for="password">
-		<g:message code="user.password.label" default="Password" />
+		<g:message code="user.password" default="Password" />
 		<span class="required-indicator">*</span>
 	</label>
-    <g:passwordField name="password" required="" value="${userInstance?.password}"/>
+    <g:passwordField name="password" required="" value=""/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'password2', 'error')} required">
+    <label for="passwordRepeate">
+        <g:message code="user.password.repeate" default="Password" />
+        <span class="required-indicator">*</span>
+    </label>
+    <g:passwordField name="passwordRepeate" required="" value=""/>
+</div>

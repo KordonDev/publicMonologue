@@ -27,15 +27,17 @@ class UserController {
         }
 
         if (userInstance.hasErrors()) {
-            respond userInstance.errors, view: 'show'
-            return
+            flash.error = userInstance.errors
+        } else if (params.password != params.passwordRepeate) {
+            flash.error = message(code: 'user.update.differentPassword')
+        } else if (userInstance.save(flush: true)) {
+            flash.message = message(code: 'default.updated.message', args: [message(code: 'User.label', default: 'User'), userInstance.id])
+        } else {
+            flash.error = message(code: 'user.update.notSaved')
         }
-
-        userInstance.save flush: true
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'User.label', default: 'User'), userInstance.id])
                 redirect userInstance
             }
             '*' { respond userInstance, [status: OK] }
