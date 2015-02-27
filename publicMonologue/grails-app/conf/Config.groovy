@@ -121,7 +121,7 @@ log4j.main = {
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'publicmonologue.User'
 grails.plugin.springsecurity.useLookup.authorityJoinClassName = 'publicmonologue.UserRole'
 grails.plugin.springsecurity.authority.className = 'publicmonologue.Role'
-grails.plugin.springsecurity.auth.loginFormUrl = '/auth/login'
+grails.plugin.springsecurity.auth.loginFormUrl = '/login/auth'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                              ['permitAll'],
 	'/index':                         ['permitAll'],
