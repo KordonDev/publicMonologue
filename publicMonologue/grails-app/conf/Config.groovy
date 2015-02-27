@@ -130,7 +130,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/js/**':                      ['permitAll'],
 	'/**/css/**':                     ['permitAll'],
 	'/**/images/**':                  ['permitAll'],
-	'/**/favicon.ico':                ['permitAll'],
+	'/**/pen.ico':                    ['permitAll'],
 	'/post/index':                    ['permitAll'],
 	'/post/result':                   ['permitAll'],
 	'/post/show':                     ['permitAll'],
