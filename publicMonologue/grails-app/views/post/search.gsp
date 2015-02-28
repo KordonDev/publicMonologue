@@ -13,6 +13,18 @@
                 ${message(code: 'label.search.title', default: 'Search in title:')}
                 <g:textField name="partOfTitle" autocomplete="off" placeholder="Part of Title"/>
             </label>
+
+            <g:select id="my-select" name="tags" from="${tagList}" multiple="true" optionKey="id" optionValue="name"/>
+
+            <div style="margin-bottom: 4%">
+                <script type="text/javascript">
+                    $('#my-select').multiSelect({
+                        selectableHeader: "<div class='custom-header'>Selectable Tags</div>",
+                        selectionHeader: "<div class='custom-header'>Selected Tags</div>"
+                    });
+                </script>
+            </div>
+
             <g:submitButton name="search" class="button success" value="${message(code: 'button.search.label', default: 'Search')}" />
         </g:form>
 

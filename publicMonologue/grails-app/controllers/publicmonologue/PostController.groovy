@@ -1,7 +1,5 @@
 package publicmonologue
 
-import java.util.regex.Pattern
-
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -113,16 +111,27 @@ class PostController {
     }
 
     def search() {
+        model:[tagList: Tag.all]
     }
 
-    List<Post> searchPost(String partOfTitle) {
-        Post.where {
+    List<Post> searchPost(String partOfTitle, List<Tag> tagList) {
+        def foundPosts = Post.where {
             title =~ "%${partOfTitle}%"
         }.list()
+
+        List<Post> foundPostsWithTag = []
+        foundPosts.each { post ->
+            tagList.each { tagId ->
+                if (post.tags.contains(tagId)) {
+                    foundPostsWithTag.add(post)
+                }
+            }
+        }
+        return foundPostsWithTag
     }
 
     def result() {
-        def posts = searchPost(params.partOfTitle)
+        def posts = searchPost(params.partOfTitle, Tag.getAll(params.list('tags')))
         model:[postInstanceList: posts, postInstanceCount: posts.size()]
     }
 }
