@@ -31,7 +31,11 @@ environments {
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
+            username = System.getenv('PUBLIC_MONOLOGOUE_DATABASE_USER')
+            password = System.getenv('PUBLIC_MONOLOGOUE_DATABASE_PASSWORD')
+            driverClassName = "com.mysql.jdbc.Driver"
+            dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+            url = "jdbc:mysql:localhost/publicmonologue?useUnicode=yes&characterEncodung=UTF-8"
             properties {
                // See http://grails.org/doc/latest/guide/conf.html#dataSource for documentation
                jmxEnabled = true
