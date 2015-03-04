@@ -7,6 +7,7 @@ import grails.transaction.Transactional
 class PostController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    def searchService
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -114,24 +115,8 @@ class PostController {
         model:[tagList: Tag.all]
     }
 
-    List<Post> searchPost(String partOfTitle, List<Tag> tagList) {
-        def foundPosts = Post.where {
-            title =~ "%${partOfTitle}%"
-        }.list()
-
-        List<Post> foundPostsWithTag = []
-        foundPosts.each { post ->
-            tagList.each { tagId ->
-                if (post.tags.contains(tagId)) {
-                    foundPostsWithTag.add(post)
-                }
-            }
-        }
-        return foundPostsWithTag
-    }
-
     def result() {
-        def posts = searchPost(params.partOfTitle, Tag.getAll(params.list('tags')))
+        def posts = searchService.searchPost(params.partOfTitle, Tag.getAll(params.list('tags')))
         model:[postInstanceList: posts, postInstanceCount: posts.size()]
     }
 }
