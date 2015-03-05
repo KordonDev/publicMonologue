@@ -18,6 +18,6 @@ class SearchService {
                 }
             }
         }
-        return foundPostsWithTag
+        return foundPostsWithTag.unique()
     }
 }
