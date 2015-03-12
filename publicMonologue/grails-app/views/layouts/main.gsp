@@ -19,6 +19,7 @@
         <asset:stylesheet src="foundation.css"/>
         <asset:stylesheet src="css/normalize.css"/>
         <asset:stylesheet src="multi-select.css"/>
+        <asset:stylesheet src="application.css"/>
 
     	<g:layoutHead/>
 	</head>

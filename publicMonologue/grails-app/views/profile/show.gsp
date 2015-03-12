@@ -8,59 +8,39 @@
 	</head>
 	<body>
 		<div id="show-profile" class="content scaffold-show" role="main">
-			<h1><g:message code="profile.show.headline" /></h1>
+
+			<h1>${grailsApplication.config.blog.title}</h1>
 			<g:if test="${flash.message}">
-			    <div class="message" role="status">${flash.message}</div>
+			    <div class="label success" role="status">${flash.message}</div>
 			</g:if>
 
-			<ol class="property-list profile">
-			
-				<g:if test="${profileInstance?.blogTitle}">
-			    	<li class="fieldcontain">
-					    <span id="blogTitle-label" class="property-label"><g:message code="profile.blogTitle.label" default="Blog Title" /></span>
-					
-						<span class="property-value" aria-labelledby="blogTitle-label"><g:fieldValue bean="${profileInstance}" field="blogTitle"/></span>
-					
-				    </li>
-				</g:if>
-			
-				<g:if test="${profileInstance?.blogDescription}">
-				<li class="fieldcontain">
-					<span id="blogDiscription-label" class="property-label"><g:message code="profile.blogDiscription.label" default="Blog Discription" /></span>
-					
-						<span class="property-value" aria-labelledby="blogDiscription-label"><g:fieldValue bean="${profileInstance}" field="blogDescription"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${profileInstance?.blogOwner}">
-				<li class="fieldcontain">
-					<span id="blogOwner-label" class="property-label"><g:message code="profile.blogOwner.label" default="Blog Owner" /></span>
-					
-						<span class="property-value" aria-labelledby="blogOwner-label"><g:fieldValue bean="${profileInstance}" field="blogOwner"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${profileInstance?.twitterName}">
-				<li class="fieldcontain">
-					<span id="twitterName-label" class="property-label"><g:message code="profile.twitterName.label" default="Twitter Name" /></span>
-					
-						<span class="property-value" aria-labelledby="twitterName-label"><g:fieldValue bean="${profileInstance}" field="twitterName"/></span>
-					
-				</li>
-				</g:if>
 
-                <g:if test="${profileInstance.pictureOfBlog}">
-                    <li>
-                        <img src="${createLink(controller: 'profile', action: 'renderImage')}">
-                    </li>
+            <g:if test="${profileInstance.pictureOfBlog}">
+                <div style="float: left; margin: 0px 20px 20px 0px">
+                    <img src="${createLink(controller: 'profile', action: 'renderImage')}">
+                </div>
+            </g:if>
+
+            <div id="text" style="">
+                <g:if test="${profileInstance?.blogOwner}">
+                    <span id="blogOwner-label" class="propertyName"><g:message code="profile.blogOwner.label" default="Blog Owner" />:</span>
+                    <span class="property-value" aria-labelledby="blogOwner-label"><g:fieldValue bean="${profileInstance}" field="blogOwner"/></span> <br>
                 </g:if>
 
-			</ol>
+                <g:if test="${profileInstance?.twitterName}">
+                    <span id="twitterName-label" class="propertyName"><g:message code="profile.twitterName.label" default="Twitter Name" />:</span>
+                    <span class="property-value" aria-labelledby="twitterName-label"><g:fieldValue bean="${profileInstance}" field="twitterName"/></span> <br>
+                </g:if>
+
+                <g:if test="${profileInstance?.blogDescription}">
+                    <markdown:renderHtml><g:fieldValue field="blogDescription" bean="${profileInstance}"/></markdown:renderHtml>
+                </g:if>
+            </div>
 
             <sec:ifAllGranted roles="ROLE_AUTHOR">
-    		    <g:link class="button" action="edit" resource="${profileInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+                <div style="clear: left">
+    		        <g:link class="button" action="edit" resource="${profileInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+                </div>
             </sec:ifAllGranted>
 		</div>
 	</body>

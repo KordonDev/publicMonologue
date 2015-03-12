@@ -11,7 +11,7 @@ class Profile {
     static constraints = {
         blogTitle blank: false
         blogOwner nullable: true
-        blogDescription nullable: true
+        blogDescription nullable: true, maxSize: 10000
         pictureOfBlog nullable: true, maxSize: 1024* 1024
         twitterName nullable: true
     }

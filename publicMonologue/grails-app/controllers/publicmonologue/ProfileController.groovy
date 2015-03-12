@@ -1,5 +1,6 @@
 package publicmonologue
 
+import org.springframework.web.multipart.commons.CommonsMultipartFile
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -12,16 +13,28 @@ class ProfileController {
     }
 
     def show() {
-        [profileInstance: Profile.findAll().get(0)]
+        [profileInstance: getProfile()]
     }
 
 
     def edit() {
-        [profileInstance:  Profile.findAll().get(0)]
+        [profileInstance:  getProfile()]
     }
 
     @Transactional
-    def update(Profile profileInstance) {
+    def update() {
+
+        def profileInstance = getProfile()
+        profileInstance.blogTitle = params.blogTitle
+        profileInstance.blogOwner = params.blogOwner
+        profileInstance.blogDescription = params.blogDescription
+        profileInstance.twitterName = params.twitterName
+
+        CommonsMultipartFile picture = params.list('pictureOfBlog')?.getAt(0)
+        if (picture.size > 0) {
+            profileInstance.pictureOfBlog = picture?.bytes
+        }
+
         if (profileInstance == null) {
             notFound()
             return
@@ -31,6 +44,11 @@ class ProfileController {
             respond profileInstance.errors, view: 'edit'
             return
         }
+
+     /**   if (profileInstance.pictureOfBlog.size() == 0) {
+            print(getProfile().pictureOfBlog)
+            profileInstance.pictureOfBlog = getProfile().pictureOfBlog
+        }*/
 
         profileInstance.save flush: true
         grailsApplication.config.blog.title = params.blogTitle
@@ -55,8 +73,12 @@ class ProfileController {
     }
 
     def renderImage() {
-        def profile = Profile.findAll().get(0)
+        def profile = getProfile()
         response.setContentLength(profile.pictureOfBlog.size())
         response.outputStream.write(profile.pictureOfBlog)
+    }
+
+    Profile getProfile() {
+        Profile.findAll().get(0)
     }
 }
