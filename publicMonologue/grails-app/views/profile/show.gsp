@@ -42,13 +42,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${profileInstance?.pictureOfBlog}">
-				<li class="fieldcontain">
-					<span id="pictureOfBlog-label" class="property-label"><g:message code="profile.pictureOfBlog.label" default="Picture Of Blog" /></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${profileInstance?.twitterName}">
 				<li class="fieldcontain">
 					<span id="twitterName-label" class="property-label"><g:message code="profile.twitterName.label" default="Twitter Name" /></span>
@@ -57,8 +50,15 @@
 					
 				</li>
 				</g:if>
-			
+
+                <g:if test="${profileInstance.pictureOfBlog}">
+                    <li>
+                        <img src="${createLink(controller: 'profile', action: 'renderImage')}">
+                    </li>
+                </g:if>
+
 			</ol>
+
             <sec:ifAllGranted roles="ROLE_AUTHOR">
     		    <g:link class="button" action="edit" resource="${profileInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
             </sec:ifAllGranted>

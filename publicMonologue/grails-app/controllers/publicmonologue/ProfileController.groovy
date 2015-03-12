@@ -53,4 +53,10 @@ class ProfileController {
             '*' { render status: NOT_FOUND }
         }
     }
+
+    def renderImage() {
+        def profile = Profile.findAll().get(0)
+        response.setContentLength(profile.pictureOfBlog.size())
+        response.outputStream.write(profile.pictureOfBlog)
+    }
 }

@@ -21,11 +21,11 @@
                 </ul>
 			</g:hasErrors>
 
-			<g:form url="[resource:profileInstance, action:'update']" method="PUT"  enctype="multipart/form-data">
+			<g:uploadForm url="[resource:profileInstance, action:'update']" method="PUT"  enctype="multipart/form-data">
 				<g:hiddenField name="version" value="${profileInstance?.version}" />
 					<g:render template="form"/>
 					<g:actionSubmit class="success button" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-			</g:form>
+			</g:uploadForm>
 		</div>
 	</body>
 </html>

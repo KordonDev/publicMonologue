@@ -12,7 +12,7 @@ class Profile {
         blogTitle blank: false
         blogOwner nullable: true
         blogDescription nullable: true
-        pictureOfBlog nullable: true
+        pictureOfBlog nullable: true, maxSize: 1024* 1024
         twitterName nullable: true
     }
 }
