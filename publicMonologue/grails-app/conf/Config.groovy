@@ -139,6 +139,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
     '/tag/show':                      ['permitAll'],
     '/auth/login':                    ['permitAll'],
     '/profile/show':                  ['permitAll'],
+    '/profile/renderImage':            ['permitAll'],
     '/**':                            ['isFullyAuthenticated()']
 ]
 
