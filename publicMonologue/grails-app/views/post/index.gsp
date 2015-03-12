@@ -10,6 +10,7 @@
 			<g:if test="${flash.message}">
 				<div class="label success" role="status">${flash.message}</div>
 			</g:if>
+            ${grailsApplication.config.blog.title}
 
             <g:render template="post"/>
 
@@ -20,5 +21,10 @@
         <script>
             window.addEventListener("onload", activateNavigationButton("listPostMenu"));
         </script>
+
+        <g:form controller="post" action="changeTitle">
+            <g:textField name="newTitle" />
+            <g:submitButton name="go"/>
+        </g:form>
 	</body>
 </html>

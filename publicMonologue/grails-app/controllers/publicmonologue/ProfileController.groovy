@@ -33,6 +33,7 @@ class ProfileController {
         }
 
         profileInstance.save flush: true
+        grailsApplication.config.blog.title = params.blogTitle
 
         request.withFormat {
             form multipartForm {

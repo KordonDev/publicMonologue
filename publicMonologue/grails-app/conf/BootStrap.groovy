@@ -4,6 +4,7 @@ import publicmonologue.User
 import publicmonologue.UserRole
 
 class BootStrap {
+    def grailsApplication
 
     def init = { servletContext ->
         def author = new Role(authority: 'ROLE_AUTHOR').save(flush: true, failOnError: true)
@@ -16,9 +17,11 @@ class BootStrap {
         assert UserRole.count == 1
 
         def defaultProfile = new Profile(blogTitle: 'default title').save(flush: true, failOnError: true)
+        grailsApplication.config.blog.title = defaultProfile.blogTitle
 
         assert Profile.count == 1
     }
+
     def destroy = {
     }
 }

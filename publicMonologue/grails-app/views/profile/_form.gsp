@@ -8,35 +8,31 @@
 	<g:textField name="blogTitle" required="" value="${profileInstance?.blogTitle}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'blogOwner', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'blogOwner', 'error')}">
 	<label for="blogOwner">
 		<g:message code="profile.blogOwner.label" default="Blog Owner" />
-		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="blogOwner" required="" value="${profileInstance?.blogOwner}"/>
+	<g:textField name="blogOwner" value="${profileInstance?.blogOwner}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'twitterName', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'twitterName', 'error')}">
     <label for="twitterName">
         <g:message code="profile.twitterName.label" default="Twitter Name" />
-        <span class="required-indicator">*</span>
     </label>
-    <g:textField name="twitterName" required="" value="${profileInstance?.twitterName}"/>
+    <g:textField name="twitterName" value="${profileInstance?.twitterName}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'pictureOfBlog', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'pictureOfBlog', 'error')}">
 	<label for="pictureOfBlog">
 		<g:message code="profile.pictureOfBlog.label" default="Picture Of Blog" />
-		<span class="required-indicator">*</span>
 	</label>
 	<input type="file" id="pictureOfBlog" name="pictureOfBlog" />
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'blogDescription', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'blogDescription', 'error')}">
     <label for="blogDescription">
         <g:message code="profile.blogDescription.label" default="Blog Description" />
-        <span class="required-indicator">*</span>
     </label>
-    <g:textArea name="blogDescription" required="" value="${profileInstance?.blogDescription}"/>
+    <g:textArea name="blogDescription" value="${profileInstance?.blogDescription}"/>
 </div>
 
