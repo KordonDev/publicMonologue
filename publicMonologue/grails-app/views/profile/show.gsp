@@ -59,8 +59,9 @@
 				</g:if>
 			
 			</ol>
-
-		    <g:link class="button" action="edit" resource="${profileInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+            <sec:ifAllGranted roles="ROLE_AUTHOR">
+    		    <g:link class="button" action="edit" resource="${profileInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+            </sec:ifAllGranted>
 		</div>
 	</body>
 </html>
