@@ -8,23 +8,25 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class ProfileController {
 
+    def profileService
+
     def index() {
         redirect(action: 'show')
     }
 
     def show() {
-        [profileInstance: getProfile()]
+        [profileInstance: profileService.getProfile()]
     }
 
 
     def edit() {
-        [profileInstance:  getProfile()]
+        [profileInstance:  profileService.getProfile()]
     }
 
     @Transactional
     def update() {
 
-        def profileInstance = getProfile()
+        def profileInstance = profileService.getProfile()
         profileInstance.blogTitle = params.blogTitle
         profileInstance.blogOwner = params.blogOwner
         profileInstance.blogDescription = params.blogDescription
@@ -44,11 +46,6 @@ class ProfileController {
             respond profileInstance.errors, view: 'edit'
             return
         }
-
-     /**   if (profileInstance.pictureOfBlog.size() == 0) {
-            print(getProfile().pictureOfBlog)
-            profileInstance.pictureOfBlog = getProfile().pictureOfBlog
-        }*/
 
         profileInstance.save flush: true
         grailsApplication.config.blog.title = params.blogTitle
@@ -73,12 +70,9 @@ class ProfileController {
     }
 
     def renderImage() {
-        def profile = getProfile()
+        def profile = profileService.getProfile()
         response.setContentLength(profile.pictureOfBlog.size())
         response.outputStream.write(profile.pictureOfBlog)
     }
 
-    Profile getProfile() {
-        Profile.findAll().get(0)
-    }
 }

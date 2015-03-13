@@ -16,7 +16,13 @@ class BootStrap {
         assert Role.count == 1
         assert UserRole.count == 1
 
-        def defaultProfile = new Profile(blogTitle: 'default title').save(flush: true, failOnError: true)
+        def defaultProfile = new Profile(
+                blogTitle: 'default title',
+                blogOwner: 'defaultUser',
+                ownerAddressStreetWithNumber: 'defaultstreet 42',
+                ownerCity: 'my city',
+                email: 'myMail@internet.com'
+        ).save(flush: true, failOnError: true)
         grailsApplication.config.blog.title = defaultProfile.blogTitle
 
         assert Profile.count == 1

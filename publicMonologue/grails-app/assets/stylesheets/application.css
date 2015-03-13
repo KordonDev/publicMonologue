@@ -15,3 +15,8 @@
 .propertyName {
     font-weight: bold
 }
+
+.footer {
+    position: fixed;
+    bottom: 0px;
+}
