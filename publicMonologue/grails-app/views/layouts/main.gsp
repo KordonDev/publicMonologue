@@ -64,6 +64,11 @@
         <script>
             $(document).foundation();
         </script>
-        <div class="footer" role="contentinfo"></div>
+        <div class="footer" role="contentinfo">
+            <div class="footer-content">
+                <g:link controller="law" action="about" class="footer-button">about</g:link>
+                <g:link controller="law" action="privacy" class="footer-button">Datensch  iaeun trnueidta ntun dtutz</g:link>
+            </div>
+        </div>
     </body>
 </html>
