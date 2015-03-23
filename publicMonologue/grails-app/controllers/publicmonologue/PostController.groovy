@@ -61,6 +61,8 @@ class PostController {
             postInstance.tags = Tag.getAll(params.list('tags'))
         }
 
+        postInstance.properties = params
+
         if (postInstance == null) {
             notFound()
             return
